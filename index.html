@@ -569,7 +569,7 @@
         <div class="container">
             <h1>Solutions Innovantes pour vos Loisirs et Besoins Quotidiens</h1>
             <p>Bertivox Games & Services offre une gamme complète de services pour répondre à vos besoins de divertissement, d'énergie mobile, d'énergies renouvelables et bientôt de transactions financières.</p>
-            <a href="#contact" class="btn btn-primary">Nous Contacter</a>
+            <a href="https://wa.me/+50947060275?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20services%20" class="btn btn-primary">Nous Contacter</a>
         </div>
     </section>
 
@@ -814,7 +814,7 @@
         
         // Update WhatsApp link with actual phone number
         // Remplacez le numéro de téléphone ci-dessous par le vôtre
-        const phoneNumber = "1234567890"; // À remplacer par votre numéro
+        const phoneNumber = "+50947060275"; // numéro de contact
         const whatsappBtn = document.querySelector('.btn-whatsapp');
         whatsappBtn.href = `https://wa.me/${phoneNumber}?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20services`;
         
@@ -825,7 +825,7 @@
                 link.addEventListener('click', function(e) {
                     if (!this.getAttribute('href').includes('contact')) return;
                     e.preventDefault();
-                    const energyMessage = encodeURIComponent("Bonjour, je suis intéressé par vos services d'énergies renouvelables et j'aimerais obtenir un devis.");
+                    const energyMessage = encodeURIComponent("Bonjour, je suis intéressé par vos services d'énergies solaires et j'aimerais obtenir un devis.");
                     window.open(`https://wa.me/${phoneNumber}?text=${energyMessage}`, '_blank');
                 });
             }
