@@ -2,61 +2,834 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Bienvenue | Mon Projet</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bertivox Games & Services - Solutions Innovantes</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-            color: white;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
+        :root {
+            --primary: #2a2d7c;
+            --secondary: #ff6b35;
+            --accent: #00b894;
+            --energy: #3498db;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --transition: all 0.3s ease;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
         }
 
-        .container {
-            max-width: 600px;
-            padding: 20px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: #fff;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--primary);
         }
 
         h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
+            font-size: 2.8rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         p {
-            font-size: 1.2em;
-            margin-bottom: 25px;
+            margin-bottom: 1rem;
+            color: var(--gray);
         }
 
-        a.button {
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        .btn {
             display: inline-block;
-            padding: 15px 30px;
-            background: #00c6ff;
-            color: #000;
+            padding: 12px 30px;
+            border-radius: var(--radius);
+            font-weight: 600;
             text-decoration: none;
-            font-weight: bold;
-            border-radius: 30px;
-            transition: 0.3s;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
         }
 
-        a.button:hover {
-            background: #fff;
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1f216b;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e85a24;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-energy {
+            background-color: var(--energy);
+            color: white;
+        }
+
+        .btn-energy:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            padding: 15px 30px;
+            margin-top: 20px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo i {
+            color: var(--secondary);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(42, 45, 124, 0.9), rgba(42, 45, 124, 0.8)), url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+        }
+
+        .hero h1 {
+            color: white;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        /* Services Section */
+        .services {
+            background-color: var(--light);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .service-icon.games {
+            background-color: var(--primary);
+        }
+
+        .service-icon.powerbank {
+            background-color: var(--secondary);
+        }
+
+        .service-icon.energy {
+            background-color: var(--energy);
+        }
+
+        .service-icon.wallet {
+            background-color: var(--accent);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+        }
+
+        .service-features {
+            list-style-type: none;
+            margin-top: 15px;
+        }
+
+        .service-features li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .service-features li:before {
+            content: "✓";
+            color: var(--accent);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .coming-soon {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Energy Detail Section */
+        .energy-detail {
+            background-color: white;
+        }
+
+        .energy-detail h2 {
+            margin-bottom: 3rem;
+        }
+
+        .energy-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .energy-step {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: var(--radius);
+            background-color: var(--light);
+            transition: var(--transition);
+        }
+
+        .energy-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background-color: var(--energy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+        }
+
+        .energy-step h3 {
+            margin-bottom: 15px;
+            color: var(--energy);
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--light);
+            text-align: center;
+        }
+
+        .contact p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.4rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                gap: 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                text-align: center;
+                padding: 15px 0;
+            }
+            
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .hero {
+                padding: 130px 0 60px;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <i class="fas fa-gamepad"></i>
+                <span>Bertivox Games & Services</span>
+            </a>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#energy">Énergies Solaires</a></li>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
 
-    <div class="container">
-        <h1>🚀 Bienvenue sur Bertivox Multi-Services</h1>
-        <p>
-           Bertivox Space est un espace moderne et polyvalent conçu pour le divertissement, les services numériques et les solutions énergétiques.
-        </p>
-        <a href="#" class="button">Contactez-nous maintenant</a>
-    </div>
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Solutions Innovantes pour vos Loisirs et Besoins Quotidiens</h1>
+            <p>Bertivox Games & Services offre une gamme complète de services pour répondre à vos besoins de divertissement, d'énergie mobile, d'énergies renouvelables et bientôt de transactions financières.</p>
+            <a href="#contact" class="btn btn-primary">Nous Contacter</a>
+        </div>
+    </section>
 
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2>Nos Services</h2>
+            <div class="services-grid">
+                <!-- Jeux -->
+                <div class="service-card">
+                    <div class="service-icon games">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Jeux Vidéo & Société</h3>
+                        <p>Venez apprendre a jouer aux jeux vidéo ainsi que des jeux de société pour vos soirées entre amis ou en famille.</p>
+                        <ul class="service-features">
+                            <li>Apprécier les jeux vidéos</li>
+                            <li>Organisation d'événements récréatifs</li>
+                            <li>Jeux pour tous les âges</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Power Bank -->
+                <div class="service-card">
+                    <div class="service-icon powerbank">
+                        <i class="fas fa-battery-full"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Location Power Bank</h3>
+                        <p>Restez connecté partout avec notre service de location de power bank. Plus jamais de batterie faible sur votre mobile.</p>
+                        <ul class="service-features">
+                            <li>Disponible dans notre local</li>
+                            <li>Tarifs compétitifs</li>
+                            <li>Batteries haute capacité</li>
+                            <li>Retour flexible</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Énergies Renouvelables -->
+                <div class="service-card">
+                    <div class="service-icon energy">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Énergies Solaires</h3>
+                        <p>Solutions solaires complètes pour votre maison ou entreprise. De l'estimation à l'installation et la maintenance.</p>
+                        <ul class="service-features">
+                            <li>Estimation gratuite</li>
+                            <li>Installation professionnelle</li>
+                            <li>Maintenance préventive</li>
+                            <li>Dépannage système PV</li>
+                            <li>Optimisation énergétique</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Portefeuille numérique -->
+                <div class="service-card">
+                    <div class="service-icon wallet">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Services de Portefeuille</h3>
+                        <p>Bientôt disponible! <b>NatCash</b> et <b>MonCash</b>  pour toutes vos transactions financières numériques en toute sécurité.</p>
+                        <ul class="service-features">
+                            <li>Transferts d'argent</li>
+                            <li>Paiement de factures</li>
+                            <li>Recharge mobile</li>
+                            <li>Achats en ligne sécurisés</li>
+                        </ul>
+                        <span class="coming-soon">Bientôt Disponible</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Énergies Renouvelables - Section détaillée -->
+    <section class="energy-detail" id="energy">
+        <div class="container">
+            <h2>Solutions Énergétiques Complètes</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Notre expertise en énergies renouvelables couvre l'ensemble du cycle de vie de votre système photovoltaïque, depuis la conception initiale jusqu'à la maintenance continue.</p>
+            
+            <div class="energy-steps">
+                <div class="energy-step">
+                    <div class="step-icon">
+                        <i class="fas fa-calculator"></i>
+                    </div>
+                    <h3>Estimation & Audit</h3>
+                    <p>Évaluation précise de vos besoins énergétiques et analyse de la rentabilité de votre projet solaire.</p>
+                </div>
+                
+                <div class="energy-step">
+                    <div class="step-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Installation</h3>
+                    <p>Installation professionnelle de systèmes PV , garantissant performance et sécurité.</p>
+                </div>
+                
+                <div class="energy-step">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>Maintenance</h3>
+                    <p>Contrats de maintenance préventive pour assurer la longévité et l'efficacité optimale de votre installation.</p>
+                </div>
+                
+                <div class="energy-step">
+                    <div class="step-icon">
+                        <i class="fas fa-wrench"></i>
+                    </div>
+                    <h3>Dépannage</h3>
+                    <p>Service de dépannage rapide pour résoudre tout problème technique sur votre système photovoltaïque.</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#contact" class="btn btn-energy">Demander un devis gratuit</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2>À Propos de Nous</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Bertivox Games & Services est une entreprise innovante qui combine technologie et divertissement pour offrir des solutions adaptées aux besoins modernes.</p>
+                    <p>Notre mission est de fournir des services de qualité qui améliorent le quotidien de nos clients, que ce soit par le divertissement, l'énergie mobile, les solutions renouvelables ou bientôt les services financiers.</p>
+                    <p>Nous croyons en l'innovation constante et à l'adaptation aux besoins changeants de notre clientèle. Chaque service est conçu avec soin pour garantir satisfaction et fiabilité.</p>
+                    <a href="#contact" class="btn btn-secondary">Travaillons ensemble</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1770&q=80" alt="Notre équipe">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2>Contactez-Nous</h2>
+            <p>Vous avez des questions sur nos services? Vous souhaitez faire une réservation, obtenir un devis ou plus d'informations? N'hésitez pas à nous contacter via WhatsApp pour une réponse rapide.</p>
+            
+            <a href="https://wa.me/50947060275?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20services%20" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Nous contacter sur WhatsApp
+            </a>
+            
+            <p style="margin-top: 30px;">Ou contactez-nous par email: <strong>alberto@bertivoxht.com</strong></p>
+            <p>Téléphone: <strong>+509 47060275</strong></p>
+            <p style="margin-top: 20px;"><i>Pour les demandes de devis en énergies solaires, veuillez nous donner une bref description de vos besoins.</i></p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Bertivox Games & Services</h3>
+                    <p>Solutions innovantes pour vos loisirs et besoins quotidiens. Jeux, énergie mobile, énergies renouvelables et services financiers.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#services">Jeux Vidéo & Société</a></li>
+                        <li><a href="#services">Location Power Bank</a></li>
+                        <li><a href="#energy">Énergies Solaires</a></li>
+                        <li><a href="#services">Services de Portefeuille</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Liens Rapides</h3>
+                    <ul class="footer-links">
+                        <li><a href="#home">Accueil</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#energy">Énergies Solaires</a></li>
+                        <li><a href="#about">À propos</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2026 Bertivox Games & Services. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.querySelector('i').classList.toggle('fa-bars');
+            mobileToggle.querySelector('i').classList.toggle('fa-times');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+                mobileToggle.querySelector('i').classList.remove('fa-times');
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Update WhatsApp link with actual phone number
+        // Remplacez le numéro de téléphone ci-dessous par le vôtre
+        const phoneNumber = "1234567890"; // À remplacer par votre numéro
+        const whatsappBtn = document.querySelector('.btn-whatsapp');
+        whatsappBtn.href = `https://wa.me/${phoneNumber}?text=Bonjour,%20je%20suis%20intéressé%20par%20vos%20services`;
+        
+        // Ajouter un message spécifique pour les services d'énergie
+        const energyLinks = document.querySelectorAll('a[href="#energy"], .btn-energy');
+        energyLinks.forEach(link => {
+            if (link.classList.contains('btn-energy')) {
+                link.addEventListener('click', function(e) {
+                    if (!this.getAttribute('href').includes('contact')) return;
+                    e.preventDefault();
+                    const energyMessage = encodeURIComponent("Bonjour, je suis intéressé par vos services d'énergies renouvelables et j'aimerais obtenir un devis.");
+                    window.open(`https://wa.me/${phoneNumber}?text=${energyMessage}`, '_blank');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
